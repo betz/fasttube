@@ -8,6 +8,7 @@ angular.module('youtube', ['ng']).run(function () {
     tag.src = "//www.youtube.com/iframe_api";
     var firstScriptTag = document.getElementsByTagName('script')[0];
     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    
     })
     .service('youtubePlayerApi', ['$window', '$rootScope', '$log', function ($window, $rootScope, $log) {
         var service = $rootScope.$new(true);
