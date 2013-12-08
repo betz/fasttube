@@ -1,4 +1,7 @@
-
+body {
+	background-color: rgb(8, 8, 9);
+	#293133;
+}
 h1, h2 {
   margin: 20px;
   color: #cc181e;
@@ -16,6 +19,7 @@ h2 {
 #searchResultsContainer,
 #playlistContainer {
   float: left;
+  color: #FFF0F5;
 }
 
 #searchResultsContainer {

@@ -24,7 +24,6 @@ function YoutubeCtrl($scope, $window, $http, $location, youtubePlayerApi) {
   $scope.next = function () {
     var next = $scope.getNext();
     if(!next) {
-      alert('end of playlist.');
       return;
     }
     $scope.setActive(next.hash);
