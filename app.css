@@ -1,0 +1,74 @@
+
+h1, h2 {
+  margin: 20px;
+  color: #cc181e;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+#searchcontainer {
+  margin: 0 20px;
+}
+
+#playerContainer,
+#searchResultsContainer,
+#playlistContainer {
+  float: left;
+}
+
+#searchResultsContainer {
+  width: 250px;
+  margin-left: 20px;
+}
+
+#searchResultsContainer h2 {
+  margin-left: 0;
+}
+
+#searchResults {
+  max-height: 600px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+#searchResults img {
+  width: 100%;
+}
+
+#playlistContainer {
+  width: 250px;
+}
+
+#playlist {
+  max-height: 600px;
+  overflow-y: auto;
+  padding: 0 20px;
+}
+
+#playlist img {
+  width: 100%;
+}
+
+.searchResult:hover,
+.playlistItem:hover {
+  cursor: pointer;
+}
+
+.searchResult {
+  padding: 5px;
+}
+
+.playlistItem {
+  padding: 5px;
+}
+
+.playlistItem.active {
+  background: #cc181e;
+  color: #fff;
+}
+
+#player {
+  margin: 0 20px;
+}

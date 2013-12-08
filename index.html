@@ -1,0 +1,51 @@
+<!doctype html>
+<html ng-app="app">
+
+  <head>
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="app.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js"></script>
+    <script src="angular-youtube-player-api.js"></script>
+    <script src="app.js"></script>
+  </head>
+
+  <body>
+
+    <div ng-controller="YoutubeCtrl">
+
+      <h1>Youtube a Go-Go!</h1>
+
+      <div id="searchcontainer">
+        <form ng-submit="search(q)">
+          <input type="text" ng-model="q" ng-change="search(q)" placeholder="Search youtube here" class="form-control" autofocus>
+        </form>
+      </div>
+
+      <div id="searchResultsContainer">
+        <h2>Search results ({{searchResults.length}})</h2>
+        <div id="searchResults">
+          <div ng-repeat="searchResult in searchResults" ng-click="addToPlaylist(searchResult)" class="searchResult">
+            <img ng-src="{{searchResult.thumbnail}}">
+            <div>{{searchResult.title}}</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="playlistContainer">
+        <h2>Playlist  ({{playlist.length}})</h2>
+        <div id="playlist">
+          <div ng-repeat="item in playlist track by $index" ng-click="play(item.hash)" class="playlistItem" ng-class="{active:isActive(item)}">
+            <img ng-src="{{item.thumbnail}}">
+            <div>{{item.title}}</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="playerContainer">
+        <h2>The Real Deal</h2>
+        <div youtube-player id="player"></div>
+      </div>
+
+    </div>
+  </body>
+</html>
