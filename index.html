@@ -36,7 +36,7 @@
         <div id="playlist">
           <div ng-repeat="item in playlist track by $index" ng-click="play(item.hash)" class="playlistItem" ng-class="{active:isActive(item)}">
             <img ng-src="{{item.thumbnail}}">
-            <div>{{item.title}}</div>
+            <div>{{item.title}} <a ng-click="deleteFromPlaylist(item.hash)">[X]</a></div>
           </div>
         </div>
       </div>

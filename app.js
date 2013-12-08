@@ -1,11 +1,12 @@
 angular.module('app', ['youtube'])
 
-function YoutubeCtrl($scope, $window, $http, youtubePlayerApi) {
+function YoutubeCtrl($scope, $window, $http, $location, youtubePlayerApi) {
 
   $scope.searchResults = [];
   $scope.playlist = [];
   $scope.current = false;
 
+  console.log($location);
 
   $scope.play = function (hash) {
     var playlist = $scope.playlist;
@@ -125,6 +126,14 @@ function YoutubeCtrl($scope, $window, $http, youtubePlayerApi) {
       return true;
     }
     return false;
+  }
+
+  $scope.deleteFromPlaylist = function (hash) {
+    for (var i = 0; i < $scope.playlist.length; i++) {
+      if($scope.playlist[i].hash == hash) {
+        $scope.playlist.splice(i, 1);
+      }
+    }
   }
 
 }
