@@ -11,6 +11,29 @@ h2 {
   font-size: 20px;
 }
 
+.search {
+  background: #cc181e;
+  color: #fff;
+  font-size: 19px;
+}
+
+.search::-webkit-input-placeholder { /* WebKit browsers */
+  color: #fff !important;
+}
+
+
+.search:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color: #fff !important;
+}
+
+.search::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color: #fff !important;
+}
+
+.search:-ms-input-placeholder { /* Internet Explorer 10+ */
+  color: #fff !important;
+}
+
 #searchcontainer {
   margin: 0 20px;
 }

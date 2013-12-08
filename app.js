@@ -115,6 +115,7 @@ function YoutubeCtrl($scope, $window, $http, $location, youtubePlayerApi) {
       playlist[i].active = false;
       if(playlist[i].hash == hash) {
         playlist[i].active = true;
+        $scope.currentTitle = playlist[i].title;
       }
     }
     $scope.$apply();

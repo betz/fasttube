@@ -17,7 +17,7 @@
 
       <div id="searchcontainer">
         <form ng-submit="search(q)">
-          <input type="text" ng-model="q" ng-change="search(q)" placeholder="Search youtube here" class="form-control" autofocus>
+          <input type="text" ng-model="q" ng-change="search(q)" placeholder="Search youtube" class="form-control search" autofocus>
         </form>
       </div>
 
@@ -42,7 +42,7 @@
       </div>
 
       <div id="playerContainer">
-        <h2>The Real Deal</h2>
+        <h2>{{currentTitle}}</h2>
         <div youtube-player id="player"></div>
       </div>
 
