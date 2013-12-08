@@ -55,6 +55,14 @@ h2 {
 }
 
 #searchResults {
+  padding-left: 10px;
+}
+li.searchResult {
+  list-style-type: none;
+  padding: 0;
+}
+
+#searchResults {
   max-height: 600px;
   overflow-y: auto;
   padding-right: 10px;

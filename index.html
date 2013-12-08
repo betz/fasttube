@@ -17,18 +17,18 @@
 
       <div id="searchcontainer">
         <form ng-submit="search(q)">
-          <input type="text" ng-model="q" ng-change="search(q)" placeholder="Search youtube" class="form-control search" autofocus>
+          <input tabindex="1" type="text" ng-model="q" ng-change="search(q)" placeholder="Search youtube" class="form-control search" autofocus>
         </form>
       </div>
 
       <div id="searchResultsContainer">
         <h2>Search results ({{searchResults.length}})</h2>
-        <div id="searchResults">
-          <div ng-repeat="searchResult in searchResults" ng-click="addToPlaylist(searchResult)" class="searchResult">
+        <ul id="searchResults">
+          <li ng-repeat="searchResult in searchResults" ng-click="addToPlaylist(searchResult)" class="searchResult" tabindex="{{ $index*10 + 1 }}">
             <img ng-src="{{searchResult.thumbnail}}">
             <div>{{searchResult.title}}</div>
-          </div>
-        </div>
+          </li>
+        </ul>
       </div>
 
       <div id="playlistContainer">
