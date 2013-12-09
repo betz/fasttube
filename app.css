@@ -54,6 +54,10 @@ h2 {
   margin-left: 0;
 }
 
+#playerContainer h2 {
+  max-width: 600px;
+}
+
 #searchResults {
   padding-left: 10px;
 }
@@ -63,7 +67,7 @@ li.searchResult {
 }
 
 #searchResults {
-  max-height: 600px;
+  height: 600px;
   overflow-y: auto;
   padding-right: 10px;
 }
@@ -76,10 +80,27 @@ li.searchResult {
   width: 250px;
 }
 
+#playlistContainer h2,
+.clearPlaylist {
+  display: inline-block;
+}
+
 #playlist {
-  max-height: 600px;
+  height: 600px;
   overflow-y: auto;
   padding: 0 20px;
+  position: relative;
+}
+
+.clearPlaylist {
+  font-size: 13px;
+}
+
+#playlist .remove {
+  position: absolute;
+  top: 0px;
+  right: 3px;
+  color: #fff;
 }
 
 #playlist img {
@@ -87,7 +108,9 @@ li.searchResult {
 }
 
 .searchResult:hover,
-.playlistItem:hover {
+.playlistItem:hover,
+#related:hover,
+.clearPlaylist {
   cursor: pointer;
 }
 
@@ -97,6 +120,7 @@ li.searchResult {
 
 .playlistItem {
   padding: 5px;
+  position: relative;
 }
 
 .playlistItem.active {
@@ -107,3 +131,22 @@ li.searchResult {
 #player {
   margin: 0 20px;
 }
+#relatedContainer {
+  margin: 0 20px;
+}
+
+#relatedContainer h2 {
+  margin: 5px 0;
+}
+
+#related {
+  /*display: inline-block;*/
+  float: left;
+  width: 200px;
+  margin: 10px 20px 0 0;
+}
+
+#related img {
+  width: 100%;
+}
+

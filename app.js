@@ -100,22 +100,61 @@ function YoutubeCtrl($scope, $window, $http, $location, youtubePlayerApi) {
     });
   };
 
+  $scope.searchRelated = function(id) {
+    $scope.related = [];
+
+    $http({
+      method: 'GET', 
+      url: 'https://gdata.youtube.com/feeds/api/videos/' + id + '/related?v=2',
+      params: {
+        'alt': "json", 
+        'max-results': 3, 
+        'v': 2, 
+        'orderby': "relevance", 
+        'format': 5
+      }
+    })
+    .success(function(data, status, headers, config) {
+
+      if(data.feed.entry.length > 0) {
+        for (var r = 0; r < data.feed.entry.length; r++) {
+          var result = {
+            'id': data.feed.entry[r].media$group.yt$videoid.$t,
+            'title': data.feed.entry[r].title.$t,
+            'thumbnail': data.feed.entry[r].media$group.media$thumbnail[1].url,
+            'active': false
+          }
+          $scope.related.push(result);
+        }
+      }
+
+    }).
+    error(function(data, status, headers, config) {
+      console.log(data);
+      console.log(status);
+    });
+  };
+
   $scope.addToPlaylist = function (result) {
     movie = result.clone();
     movie.hash = token();
     $scope.playlist.push(movie);
-    console.log($scope.playlist);
+    if($scope.playlist.length == 1) {
+      $scope.play(movie.hash);
+    }
   }
 
   $scope.setActive = function (hash) {
     var playlist = $scope.playlist;
     $scope.current = hash;
 
+
     for (var i = 0; i < playlist.length; i++) {
       playlist[i].active = false;
       if(playlist[i].hash == hash) {
         playlist[i].active = true;
         $scope.currentTitle = playlist[i].title;
+        $scope.searchRelated(playlist[i].id);
       }
     }
     $scope.$apply();
@@ -134,6 +173,10 @@ function YoutubeCtrl($scope, $window, $http, $location, youtubePlayerApi) {
         $scope.playlist.splice(i, 1);
       }
     }
+  }
+
+  $scope.clearPlaylist = function () {
+    $scope.playlist = [];
   }
 
 }

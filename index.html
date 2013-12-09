@@ -32,11 +32,11 @@
       </div>
 
       <div id="playlistContainer">
-        <h2>Playlist  ({{playlist.length}})</h2>
+        <h2>Playlist  ({{playlist.length}})</h2><a ng-click="clearPlaylist()" class="clearPlaylist" ng-show="playlist.length">Clear</a>
         <div id="playlist">
           <div ng-repeat="item in playlist track by $index" ng-click="play(item.hash)" class="playlistItem" ng-class="{active:isActive(item)}">
             <img ng-src="{{item.thumbnail}}">
-            <div>{{item.title}} <a ng-click="deleteFromPlaylist(item.hash)">[X]</a></div>
+            <div><a ng-click="deleteFromPlaylist(item.hash)">[X]</a> {{item.title}}</div>
           </div>
         </div>
       </div>
@@ -44,6 +44,15 @@
       <div id="playerContainer">
         <h2>{{currentTitle}}</h2>
         <div youtube-player id="player"></div>
+
+        <div id="relatedContainer" ng-show="current">
+          <h2>Related</h2>
+          <div id="related" ng-repeat="item in related" ng-click="addToPlaylist(item)">
+            <img ng-src="{{item.thumbnail}}">
+            <div>{{item.title}}</div>
+          </div>
+        </div>
+
       </div>
 
     </div>
