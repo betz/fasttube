@@ -11,6 +11,14 @@ h2 {
   font-size: 20px;
 }
 
+h1, .loop {
+  display: inline-block;
+}
+
+.loop {
+  margin: 0 0 15px;
+}
+
 .search {
   background: #cc181e;
   color: #fff;

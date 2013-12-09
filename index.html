@@ -4,7 +4,10 @@
   <head>
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="app.css">
+    <script src="http://code.jquery.com/jquery-2.0.3.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <script src="bootstrap-angular/ui-bootstrap-0.7.0.min.js"></script>
     <script src="angular-youtube-player-api.js"></script>
     <script src="app.js"></script>
   </head>
@@ -14,6 +17,11 @@
     <div ng-controller="YoutubeCtrl">
 
       <h1>FastTube</h1>
+      <div class="btn-group loop">
+        <button type="button" class="btn btn-primary btn-xs" ng-model="loop" btn-radio="'none'">Don't loop</button>
+        <button type="button" class="btn btn-primary btn-xs" ng-model="loop" btn-radio="'one'">Loop one</button>
+        <button type="button" class="btn btn-primary btn-xs" ng-model="loop" btn-radio="'all'">Loop all</button>
+    </div>
 
       <div id="searchcontainer">
         <form ng-submit="search(q)">

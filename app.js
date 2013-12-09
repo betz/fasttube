@@ -1,10 +1,11 @@
-angular.module('app', ['youtube'])
+angular.module('app', ['youtube', 'ui.bootstrap'])
 
 function YoutubeCtrl($scope, $window, $http, $location, youtubePlayerApi) {
 
   $scope.searchResults = [];
   $scope.playlist = [];
   $scope.current = false;
+  $scope.loop = "none";
 
   console.log($location);
 
@@ -33,15 +34,21 @@ function YoutubeCtrl($scope, $window, $http, $location, youtubePlayerApi) {
   $scope.getNext = function () {
     var playlist = $scope.playlist;
 
-    if(!$scope.current) {
-      return playlist[0];
-    }
-
     for (var i = 0; i < playlist.length; i++) {
       if(playlist[i].hash == $scope.current) {
+        
+        if($scope.loop == 'one') {
+          return playlist[i];
+        }
+
+        if($scope.loop == 'all' && !playlist[i+1]) {
+          return playlist[0];
+        }
+
         if(!playlist[i+1]) {
           return false;
         }
+
         return playlist[i+1];
       }
     }
@@ -136,7 +143,7 @@ function YoutubeCtrl($scope, $window, $http, $location, youtubePlayerApi) {
   };
 
   $scope.addToPlaylist = function (result) {
-    movie = result.clone();
+    var movie = angular.copy(result)
     movie.hash = token();
     $scope.playlist.push(movie);
     if($scope.playlist.length == 1) {
@@ -157,7 +164,7 @@ function YoutubeCtrl($scope, $window, $http, $location, youtubePlayerApi) {
         $scope.searchRelated(playlist[i].id);
       }
     }
-    $scope.$apply();
+    //$scope.$apply();
   }
 
   $scope.isActive = function (item) {
@@ -184,7 +191,7 @@ function YoutubeCtrl($scope, $window, $http, $location, youtubePlayerApi) {
 
 /* helper functions */
 
-Object.prototype.clone = function() {
+/*Object.prototype.deepClone = function() {
   var newObj = (this instanceof Array) ? [] : {};
   for (i in this) {
     if (i == 'clone') continue;
@@ -192,7 +199,7 @@ Object.prototype.clone = function() {
       newObj[i] = this[i].clone();
     } else newObj[i] = this[i]
   } return newObj;
-};
+};*/
 
 var rand = function() {
     return Math.random().toString(36).substr(2); // remove `0.`
