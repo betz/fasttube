@@ -18,7 +18,7 @@
 
       <h1>FastTube</h1>
       <div class="btn-group loop">
-        <button type="button" class="btn btn-primary btn-xs" ng-model="loop" btn-radio="'none'">Don't loop</button>
+        <button type="button" class="btn btn-primary btn-xs" ng-model="loop" btn-radio="'none'">No loop</button>
         <button type="button" class="btn btn-primary btn-xs" ng-model="loop" btn-radio="'one'">Loop one</button>
         <button type="button" class="btn btn-primary btn-xs" ng-model="loop" btn-radio="'all'">Loop all</button>
     </div>
@@ -44,7 +44,7 @@
         <div id="playlist">
           <div ng-repeat="item in playlist track by $index" ng-click="play(item.hash)" class="playlistItem" ng-class="{active:isActive(item)}">
             <img ng-src="{{item.thumbnail}}">
-            <div><a ng-click="deleteFromPlaylist(item.hash)">[X]</a> {{item.title}}</div>
+            <div><a ng-click="deleteFromPlaylist(item.hash)" id="{{item.hash}}">[X]</a> {{item.title}}</div>
           </div>
         </div>
       </div>

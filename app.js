@@ -1,6 +1,6 @@
 angular.module('app', ['youtube', 'ui.bootstrap'])
 
-function YoutubeCtrl($scope, $window, $http, $location, youtubePlayerApi) {
+function YoutubeCtrl($scope, $window, $http, $location, $anchorScroll, youtubePlayerApi) {
 
   $scope.searchResults = [];
   $scope.playlist = [];
@@ -154,7 +154,7 @@ function YoutubeCtrl($scope, $window, $http, $location, youtubePlayerApi) {
   $scope.setActive = function (hash) {
     var playlist = $scope.playlist;
     $scope.current = hash;
-
+    $location.hash(hash);
 
     for (var i = 0; i < playlist.length; i++) {
       playlist[i].active = false;
