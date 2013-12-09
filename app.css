@@ -12,10 +12,13 @@ h2 {
 }
 
 h1, .loop {
-  display: inline-block;
+
 }
 
 .loop {
+  position: absolute;
+  right: 20px;
+  top: 25px;
   margin: 0 0 15px;
 }
 
