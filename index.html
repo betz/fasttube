@@ -30,7 +30,7 @@
       </div>
 
       <div id="searchResultsContainer">
-        <h2>Search results ({{searchResults.length}})</h2>
+        <h2>Search results ({{searchResults.length}})</h2><a ng-click="clearSearchResults()" class="clearSearchResults" ng-show="searchResults.length">Clear</a>
         <ul id="searchResults">
           <li ng-repeat="searchResult in searchResults" ng-click="addToPlaylist(searchResult)" class="searchResult" tabindex="{{ $index*10 + 1 }}">
             <img ng-src="{{searchResult.thumbnail}}">

@@ -186,6 +186,10 @@ function YoutubeCtrl($scope, $window, $http, $location, $anchorScroll, youtubePl
     $scope.playlist = [];
   }
 
+  $scope.clearSearchResults = function () {
+    $scope.searchResults = [];
+  }
+
 }
 
 

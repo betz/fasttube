@@ -89,7 +89,9 @@ li.searchResult {
 }
 
 #playlistContainer h2,
-.clearPlaylist {
+.clearPlaylist,
+#searchResultsContainer h2,
+.clearSearchResults {
   display: inline-block;
 }
 
@@ -100,7 +102,8 @@ li.searchResult {
   position: relative;
 }
 
-.clearPlaylist {
+.clearPlaylist,
+.clearSearchResults {
   font-size: 13px;
 }
 
@@ -118,7 +121,8 @@ li.searchResult {
 .searchResult:hover,
 .playlistItem:hover,
 #related:hover,
-.clearPlaylist {
+.clearPlaylist,
+.clearSearchResults {
   cursor: pointer;
 }
 
