@@ -25,7 +25,7 @@
 
       <div id="searchcontainer">
         <form ng-submit="search(q)">
-          <input tabindex="1" type="text" ng-model="q" ng-change="search(q)" placeholder="Search youtube" class="form-control search" autofocus>
+          <input tabindex="1" type="text" ng-model="q" placeholder="Search youtube" class="form-control search" autofocus>
         </form>
       </div>
 
@@ -43,8 +43,11 @@
         <h2>Playlist  ({{playlist.length}})</h2><a ng-click="clearPlaylist()" class="clearPlaylist" ng-show="playlist.length">Clear</a>
         <div id="playlist">
           <div ng-repeat="item in playlist track by $index" ng-click="play(item.hash)" class="playlistItem" ng-class="{active:isActive(item)}">
-            <img ng-src="{{item.thumbnail}}">
-            <div><a ng-click="deleteFromPlaylist(item.hash)" id="{{item.hash}}">[X]</a> {{item.title}}</div>
+            <a id="{{item.hash}}" class="anchor"></a>
+            <div class="inner">
+              <img ng-src="{{item.thumbnail}}">
+              <div><a ng-click="deleteFromPlaylist(item.hash)">[X]</a> {{item.title}}</div>
+            </div>
           </div>
         </div>
       </div>

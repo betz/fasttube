@@ -146,6 +146,7 @@ function YoutubeCtrl($scope, $window, $http, $location, $anchorScroll, youtubePl
     var movie = angular.copy(result)
     movie.hash = token();
     $scope.playlist.push(movie);
+    $location.hash(movie.hash);
     if($scope.playlist.length == 1) {
       $scope.play(movie.hash);
     }
@@ -194,16 +195,6 @@ function YoutubeCtrl($scope, $window, $http, $location, $anchorScroll, youtubePl
 
 
 /* helper functions */
-
-/*Object.prototype.deepClone = function() {
-  var newObj = (this instanceof Array) ? [] : {};
-  for (i in this) {
-    if (i == 'clone') continue;
-    if (this[i] && typeof this[i] == "object") {
-      newObj[i] = this[i].clone();
-    } else newObj[i] = this[i]
-  } return newObj;
-};*/
 
 var rand = function() {
     return Math.random().toString(36).substr(2); // remove `0.`

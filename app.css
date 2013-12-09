@@ -133,12 +133,12 @@ li.searchResult {
   padding: 5px;
 }
 
-.playlistItem {
+.playlistItem .inner {
   padding: 5px;
   position: relative;
 }
 
-.playlistItem.active {
+.playlistItem.active .inner {
   background: #cc181e;
   color: #fff;
 }
@@ -163,5 +163,9 @@ li.searchResult {
 
 #related img {
   width: 100%;
+}
+
+.anchor {
+  margin-top: 5px;
 }
 
